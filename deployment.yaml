@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-sphere-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: event-sphere
+  template:
+    metadata:
+      labels:
+        app: event-sphere
+    spec:
+      containers:
+        - name: app
+          image: LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG
+          imagePullPolicy: Always
